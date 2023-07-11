@@ -2,70 +2,45 @@ import { defineStore } from 'pinia'
 
 export const useCoinStore = defineStore('coinStore', {
   state: () => ({
-    coins: [
-      {
-        id: 1, 
-        name: 'SongBird',
-        ticker: 'SGB',
-        price: 0.0061,
-        mintQuantity: 0,
-        priceURL: 'https://api.coinbase.com/v2/exchange-rates?currency=SGB',
-        circulatingSupply: 16500000000
-      },
-      {
-        id: 2, 
-        name: 'Flare',
-        ticker: 'FLR',
-        price: 0.0130,
-        mintQuantity: 0,
-        priceURL: 'https://api.coinbase.com/v2/exchange-rates?currency=FLR',
-        circulatingSupply: 15500000000
-      },
-      {
-        id: 3, 
-        name: 'Bitcoin',
-        ticker: 'BTC',
-        price: 30000.0000,
-        mintQuantity: 0,
-        priceURL: 'https://api.coinbase.com/v2/exchange-rates?currency=BTC',
-        circulatingSupply: 19190000
-      },
-      {
-        id: 4, 
-        name: 'Litecoin',
-        ticker: 'LTC',
-        price: 111.00,
-        mintQuantity: 0,
-        priceURL: 'https://api.coinbase.com/v2/exchange-rates?currency=LTC',
-        circulatingSupply: 19190000
-      },
-      {
-        id: 5, 
-        name: 'XRP',
-        ticker: 'XRP',
-        price: 0.4600,
-        mintQuantity: 0,
-        priceURL: 'https://api.coinbase.com/v2/exchange-rates?currency=XRP',
-        circulatingSupply: 52000000000
-      },
-      {
-        id: 6, 
-        name: 'Dogecoin',
-        ticker: 'DOGE',
-        price: 0.0650,
-        mintQuantity: 0,
-        priceURL: 'https://api.coinbase.com/v2/exchange-rates?currency=DOGE',
-        circulatingSupply: 140120600000
-      },
-      {
-        id: 7, 
-        name: 'Algorand',
-        ticker: 'ALGO',
-        price: 0.1101,
-        mintQuantity: 0,
-        priceURL: 'https://api.coinbase.com/v2/exchange-rates?currency=ALGO',
-        circulatingSupply: 7500000000
-      } 
-    ]
-  })
+    coins:[],
+    isLoading: false
+  }),
+  getters: {
+    minted() {
+      return this.coins.filter(c => c.mintQuantity > 0)
+    },
+    mintCount() {
+      return this.coins.reduce((previousValue, currentValue) => {
+        return currentValue.mintQuantity > 0 ? previousValue + 1 : previousValue
+      }, 0)
+    },
+    totalCoins: (state) => {
+      return state.coins.length
+    }
+  },
+  actions: {
+    async getCoins() {
+      this.isLoading = true
+      const response = await fetch('http://localhost:3000/coins')
+      const data = await response.json()
+
+      this.coins = data
+      this.isLoading = false
+    },
+    async updateMintAmount(id, amount) {
+      const coin = this.coins.find(c => c.id == coin.id)
+      coin.mintQuantity = amount
+      
+      const reponse = await fetch('http://localhost:3000/coins', {
+        // method: 'POST',
+        method: 'PATCH',
+        body: JSON.stringify({mintQuantity: coin.mintQuantity}),
+        headers: {'Content-Type': 'application/json'}
+      })
+
+      if(response.error) {
+        console.log(repsonse.error)
+      }
+    }
+  }
 })

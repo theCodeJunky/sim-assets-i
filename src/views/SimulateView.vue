@@ -1,16 +1,18 @@
 <template>
   <main class="container">
     <h1>SIMULATE</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sed aperiam nobis quasi dolore deserunt, est ex voluptatum molestiae, fugit consequatur. Saepe ad impedit adipisci in blanditiis facilis mollitia odio?</p>
+    <p>Chart Goes Here!</p>
     <div class="coin-tile-list">
-      <CoinTile v-for="coin in coinStore.coins" :key="coin.id" :coin="coin" />
+      <div>Mint Count: {{coinStore.mintCount}}</div>
+      <MintTile v-for="coin in coinStore.minted" :key="coin.id" :coin="coin" />
     </div>
+
   
   </main>
 </template>
 <script setup>
   import { useCoinStore } from '../stores/CoinStore.js'
-  import CoinTile from '../components/CoinTile.vue'
+  import MintTile from '../components/MintTile.vue'
 
    const coinStore = useCoinStore()
 

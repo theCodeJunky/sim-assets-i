@@ -1,0 +1,67 @@
+{
+  "coins": [
+    {
+      "id": 1, 
+      "name": "SongBird",
+      "ticker": "SGB",
+      "price": 0.0061,
+      "mintQuantity": 0,
+      "priceURL": "https://api.coinbase.com/v2/exchange-rates?currency=SGB",
+      "circulatingSupply": 16500000000
+    },
+    {
+      "id": 2, 
+      "name": "Flare",
+      "ticker": "FLR",
+      "price": 0.0130,
+      "mintQuantity": 0,
+      "priceURL": "https://api.coinbase.com/v2/exchange-rates?currency=FLR",
+      "circulatingSupply": 15500000000
+    },
+    {
+      "id": 3, 
+      "name": "Bitcoin",
+      "ticker": "BTC",
+      "price": 30000.0000,
+      "mintQuantity": 0,
+      "priceURL": "https://api.coinbase.com/v2/exchange-rates?currency=BTC",
+      "circulatingSupply": 19190000
+    },
+    {
+      "id": 4, 
+      "name": "Litecoin",
+      "ticker": "LTC",
+      "price": 111.00,
+      "mintQuantity": 0,
+      "priceURL": "https://api.coinbase.com/v2/exchange-rates?currency=LTC",
+      "circulatingSupply": 19190000
+    },
+    {
+      "id": 5, 
+      "name": "XRP",
+      "ticker": "XRP",
+      "price": 0.4600,
+      "mintQuantity": 0,
+      "priceURL": "https://api.coinbase.com/v2/exchange-rates?currency=XRP",
+      "circulatingSupply": 52000000000
+    },
+    {
+      "id": 6, 
+      "name": "Dogecoin",
+      "ticker": "DOGE",
+      "price": 0.0650,
+      "mintQuantity": 1,
+      "priceURL": "https://api.coinbase.com/v2/exchange-rates?currency=DOGE",
+      "circulatingSupply": 140120600000
+    },
+    {
+      "id": 7, 
+      "name": "Algorand",
+      "ticker": "ALGO",
+      "price": 0.1101,
+      "mintQuantity": 0,
+      "priceURL": "https://api.coinbase.com/v2/exchange-rates?currency=ALGO",
+      "circulatingSupply": 7500000000
+    } 
+  ]
+}
