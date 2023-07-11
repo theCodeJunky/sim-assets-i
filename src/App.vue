@@ -5,11 +5,16 @@
   </nav>
   <main>
     <RouterView />
+    <!-- <p>BTC Price: {{ coinStore.coins[2].price }} </p> -->
   </main>
 </template>
 
 <script setup>
   import { RouterView, RouterLink } from 'vue-router'
+  import { useCoinStore } from './stores/CoinStore.js'
+
+  const coinStore = useCoinStore()
+
 </script>
 
 <style scoped>

@@ -1,12 +1,25 @@
 <template>
   <main class="container">
-    <h1>MINT</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sed aperiam nobis quasi dolore deserunt, est ex voluptatum molestiae, fugit consequatur. Saepe ad impedit adipisci in blanditiis facilis mollitia odio?</p>
+    <h1>SIMULATE FMINTING</h1>
+    <p>Estimate the potential value of FLR based on the total number of assets minted onto the Flare Network.</p>
+    <!-- <ul>
+      <li v-for="coin in coinStore.coins" :key="coin.id">
+        {{coin.name}}
+      </li>
+    </ul> -->
+    <div class="coin-list">
+      <CoinButton  v-for="coin in coinStore.coins" :key="coin.id" :coin="coin" />
+    </div>
   </main>
 </template>
 <script setup>
+  import { useCoinStore } from '../stores/CoinStore.js'
+  import CoinButton from '../components/CoinButton.vue'
 
+  const coinStore = useCoinStore()
 </script>
 <style scoped>
-  
+  ul {
+    list-style: none;
+  }
 </style>
