@@ -1,3 +1,4 @@
+import {ref, reactive, watch } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCoinStore = defineStore('coinStore', {
@@ -16,7 +17,12 @@ export const useCoinStore = defineStore('coinStore', {
     },
     totalCoins: (state) => {
       return state.coins.length
-    }
+    },
+    // getCount() {
+    //   if(localStorage.getItem(count)){
+    //     return JSON.parse(localStorage.getItem("count"))
+    //   }
+    // }
   },
   actions: {
     async getCoins() {
@@ -41,6 +47,9 @@ export const useCoinStore = defineStore('coinStore', {
       if(response.error) {
         console.log(repsonse.error)
       }
-    }
+    },
+    // updateCount(count) {
+    //   localStorage.setItem("count", JSON.stringify(count))
+    // }
   }
 })
