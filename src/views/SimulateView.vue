@@ -1,21 +1,20 @@
 <template>
-    <h1>SIMULATE</h1>
-    <p>Chart Goes Here!</p>
-    <div class="coin-tile-list">
-      <div>Mint Count: {{coinStore.mintCount}}</div>
-      <MintTile v-for="coin in coinStore.minted" :key="coin.id" :coin="coin" />
-    </div>
+    <ChartCollateral />
+    <MintedAssets :minted="coinStore.minted" />
 </template>
 <script setup>
   import { useCoinStore } from '../stores/CoinStore.js'
-  import MintTile from '../components/MintTile.vue'
+  import ChartCollateral from '../components/ChartCollateral.vue'
+  import MintedAssets from '../components/MintedAssets.vue'
+  
 
    const coinStore = useCoinStore()
 
 </script>
 <style scoped>
-  h1 {
-    padding: 0;
-    margin: 0;
+  h1{
+    padding: 15px 0;
   }
+
+
 </style>

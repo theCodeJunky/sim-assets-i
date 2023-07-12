@@ -6,7 +6,7 @@
       <span>Simulate</span>
     </RouterLink>
     <RouterLink active-class="active" to="/mint">
-      <NavMintActive v-if="routes.path == '/mint'" />
+      <NavMintActive v-if="routes.path.includes('mint')" />
       <NavMint v-else />
       <span>Mint</span>
     </RouterLink>
@@ -20,19 +20,13 @@
   import NavSimulate from './icons/NavSimulate.vue'
 
   const routes = useRoute()
+  const route = routes.path.includes('mint')
 
   console.log(routes.path)
+  console.log(route)
 
 </script>
 <style lang="scss" scoped>
-  a {
-
-  }
-
-  svg {
-    min-height: 33px;
-  }
-
   .active {
     font-weight: bold;
   }
